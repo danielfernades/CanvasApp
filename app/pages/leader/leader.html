@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Leader Board</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <ion-segment [(ngModel)]="leader">
+      <ion-segment-button value="likes">
+        Likes
+      </ion-segment-button>
+      <ion-segment-button value="posts">
+        Posts
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="leader">
+    <ion-list  *ngSwitchCase="'likes'" no-border>
+      <!--<ion-list-header>
+        Likes
+      </ion-list-header>-->
+      <ion-item *ngFor="let item of likeArray">
+        <ion-avatar item-left>
+          <img src="{{item.avatar_image_url}}">
+        </ion-avatar>
+        <h2>{{item.display_name}}</h2>
+        {{item.like}}
+      </ion-item>
+    </ion-list>
+
+    <ion-list  *ngSwitchCase="'posts'" no-border>
+      <!--<ion-list-header>
+        Posts
+      </ion-list-header>-->
+      <ion-item *ngFor="let item of postArray">
+        <ion-avatar item-left>
+          <img src="{{item.avatar_image_url}}">
+        </ion-avatar>
+        <h2>{{item.display_name}}</h2>
+        {{item.post}}
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

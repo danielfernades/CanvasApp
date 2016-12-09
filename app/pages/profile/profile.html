@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="profile">
+
+<!--<ion-item class="item-profile">
+  <div class="item-avatar">
+    <img src="{{avatarImageUrl}}">
+  </div>
+</ion-item>-->
+<!--<ion-content>
+    <ion-list>
+      <ion-item ng-repeat="item in items" class="item item-text-wrap item-icon-right" ng-click="expandItem(item)">
+ 
+        <div ng-class="isItemExpanded(item) ? 'expand-item active' : 'expand-item inactive'">
+          <h3>{{item.Text}}</h3>
+          <ion-option-button class="button-assertive icon-left ion-trash-b">
+            Remove
+          </ion-option-button>
+        </div>
+        <i ng-class="isItemExpanded(item) ? 'icon ion-chevron-down icon-accessory' : 'icon ion-chevron-right icon-accessory'"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>-->
+
+
+<!--<ion-list>
+  <ion-item>
+    <ion-thumbnail item-left>
+      <img src="img/thumbnail-totoro.png">
+    </ion-thumbnail>
+    <h2>Bio</h2>
+    <p>{{bio}}</p>
+    <button clear item-right>View</button>
+  </ion-item>
+</ion-list>-->
+
+ <ion-col>   
+<!--test-->
+<ion-item>
+<img class="Profile-img" src="{{avatarImageUrl}}">
+</ion-item>
+<!--test-->
+ </ion-col>
+ 
+ <ion-col>   
+<ion-card>
+  <ion-card-content>
+    <ion-card-title center text-center> 
+   {{displayName}}
+    </ion-card-title>
+  </ion-card-content>
+</ion-card>
+ </ion-col>
+<!--
+  <ion-card center text-center>  
+          {{displayName}}    
+  </ion-card>
+ -->
+
+
+                                          <!--OLD EMAIL-->
+<!--<ion-card>
+  <ion-card-content>
+    <ion-card-title center text-center> 
+   Email: {{email}}
+    </ion-card-title>
+  </ion-card-content>
+</ion-card>-->
+
+ <ion-col>   
+<ion-card>
+  <ion-card-content>
+  <!--<ion-list>-->
+  <!--<ion-item center text-center>-->
+  
+    <h2 center text-center>Email</h2>
+    
+    <p center text-center>{{email}}</p>
+  <!--</ion-item>-->
+<!--</ion-list>-->
+    </ion-card-content>
+</ion-card>
+ </ion-col>
+<!--test from topics-->
+
+  <!--<ion-item>
+          <ion-card>
+            <ion-row>
+              <ion-col>
+              <ion-col center text-center>
+                <ion-note>
+                  <p>Email: {{email}}</p>
+                </ion-note>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-item>-->
+
+<!--test from topics-->
+
+        <!--<ion-card>
+    <ion-card-title>
+  <h2>  Email: {{email}}</h2>
+    </ion-card-title>
+        </ion-card>-->
+
+<!--<ion-card>
+       <ion-card-content>
+    
+      <!--<ion-col center text-center>
+                <ion-note>
+                    <p>Bio:  {{bio}}</p>
+                </ion-note>
+              </ion-col>-->
+   
+    <!--</ion-card-content>
+</ion-card>-->
+
+
+  <!--List Expand-->
+     <ion-col>   
+<ion-card center text-center (click)="Expand()">
+  <ion-card-content>
+  <!--<ion-list>-->
+  <!--<ion-item >-->
+    <h2 center text-center>Bio</h2>
+       <p>{{shownBio}}</p>
+  <!--</ion-item>-->
+<!--</ion-list>-->
+    </ion-card-content>
+</ion-card>
+     </ion-col>
+  <!--List Expand-->
+  
+<!--<button ion-button full small>My Files</button>
+<button ion-button full small>Help</button>
+<button ion-button full small>Logout</button>-->
+
+<!--<div class="button-bar">
+  <a class="Likes">Likes</a>
+  <a class="Posts">Posts</a>
+</div>-->
+
+  <ul class="profile">
+  </ul>
+
+<ion-item>
+  <ion-icon name="ios-create" item-left style="color: #0074ff"></ion-icon>
+  Posts
+  <ion-badge item-right>{{LikesCount}}</ion-badge>
+</ion-item>
+
+
+
+<ion-item>
+  <ion-icon name="ios-thumbs-up" item-left style="color: #0074ff"></ion-icon>
+  Likes
+  <ion-badge item-right>{{PostsCount}}</ion-badge>
+</ion-item>
+
+<!--Test expand-->
+  <!--<ion-item-sliding>
+  <ion-item>
+    Item 1
+  </ion-item>
+  <ion-item-options side="right" (ionSwipe)="saveItem(item)">
+    <button ion-button expandable (click)="saveItem(item)">
+      <ion-icon name="star"></ion-icon>
+    </button>
+  </ion-item-options>
+</ion-item-sliding>-->
+  <!--test expand-->
+</ion-content>
+

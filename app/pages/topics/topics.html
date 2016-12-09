@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Topics</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="topics">
+  {{globalVars.getCourseID()}}
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item-group *ngFor="let topics of allTopics">
+      <ion-item-divider light>
+        {{topics.pinned}}
+      </ion-item-divider>
+      <!--<button ion-item *ngFor="let item of topics.topics" (click)="itemTapped($event, item)">
+          <ion-avatar item-left>
+            <img src="{{item.avatarImageUrl}}">
+          </ion-avatar>
+          <h2>{{item.title}}</h2>
+          <p>{{item.displayName}}</p>
+          <div class="item-note" item-right>
+            {{item.postedAt}}
+          </div>
+      </button>-->
+
+      <ion-list>
+
+        <ion-item *ngFor="let item of topics.topics">
+          <ion-card>
+            <ion-item-sliding>
+              <ion-item>
+                <ion-avatar item-left>
+                  <img src="{{item.avatarImageUrl}}">
+                </ion-avatar>
+                <b>{{item.title}}</b><br>
+                <b>{{item.displayName}}</b>
+              </ion-item>
+              <ion-item-options>
+                <button light>
+                  <ion-icon name="ios-more"></ion-icon>
+                  More
+                </button>
+                <button primary  (click)="editTopic($event, item)">
+                  <ion-icon name="paper"></ion-icon>
+                  Edit
+                </button>
+                <button secondary (click)="deleteTopic($event, item)">
+                  <ion-icon name="trash"></ion-icon>
+                  Delete
+                  </button>
+              </ion-item-options>
+            </ion-item-sliding>
+            <ion-card-content>
+              <!--<p class="large" [innerHTML]="post.message"></p>-->
+            </ion-card-content>
+            <ion-row>
+              <!--<ion-col>
+                </ion-col>-->
+              <ion-col>
+                <button primary clear small (click)="itemTapped($event, item)">
+                    <ion-icon name="text"></ion-icon>
+                    <div>{{item.discussionSubentryCount}} Comments</div>
+                  </button>
+              </ion-col>
+              <ion-col center text-center>
+                <ion-note>
+                  <p>{{item.postedAt}}</p>
+                </ion-note>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-item>
+
+      </ion-list>
+
+    </ion-item-group>
+
+  </ion-list>
+</ion-content>

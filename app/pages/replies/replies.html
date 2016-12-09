@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-navbar>
+    <!--<button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>-->
+    <ion-title>Entry Details</ion-title>
+    <ion-buttons end>
+      <button royal  (click)="replyClick($event,entry)">
+        Reply
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+  <ion-card>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="{{entry.avatarImageUrl}}">
+        </ion-avatar>
+        <b>{{entry.displayName}}</b>
+      </ion-item>
+      <ion-item-options>
+        <button light>
+              <ion-icon name="ios-more"></ion-icon>
+              More
+            </button>
+        <button primary>
+              <ion-icon name="create"></ion-icon>
+              Edit
+            </button>
+        <button secondary (click)="deleteEntry($event, entry)">
+              <ion-icon name="close"></ion-icon>
+              Delete
+              </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-card-content>
+      <p class="large" [innerHTML]="entry.message"></p>
+    </ion-card-content>
+    <ion-row>
+        <ion-col *ngIf="entry.allowRating==true">
+          <button primary dark clear small *ngIf="entry.rating==0" (click)="likeClicked($event, entry)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{entry.ratingSum}} Likes</div>
+          </button>
+          <button primary clear small *ngIf="entry.rating==1" (click)="likeClicked($event, entry)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{entry.ratingSum}} Likes</div>
+          </button>
+        </ion-col>
+      <ion-col>
+        <!--<button primary clear small>-->
+        <!--<ion-icon name="text"></ion-icon>-->
+        <!--<div>4 Comments</div>-->
+        <!--</button>-->
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          <p>{{entry.createdAt}}</p>
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  </ion-list>
+
+  <ion-list>
+    <ion-card *ngFor="let reply of replies">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="{{reply.avatarImageUrl}}">
+          </ion-avatar>
+          <b>{{reply.displayName}}</b>
+        </ion-item>
+        <ion-item-options>
+          <button light>
+              <ion-icon name="ios-more"></ion-icon>
+              More
+            </button>
+          <button primary>
+              <ion-icon name="create"></ion-icon>
+              Edit
+            </button>
+          <button secondary (click)="deleteReply($event, reply)">
+              <ion-icon name="close"></ion-icon>
+              Delete
+              </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-card-content>
+        <p class="large" [innerHTML]="reply.message"></p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col *ngIf="entry.allowRating==true">
+          <button primary dark clear small *ngIf="reply.rating==0" (click)="likeClicked($event, reply)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{reply.ratingSum}} Likes</div>
+          </button>
+          <button primary clear small *ngIf="reply.rating==1" (click)="likeClicked($event, reply)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{reply.ratingSum}} Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button primary clear small (click)="itemTapped($event, reply)">
+        <ion-icon name="text"></ion-icon>
+        <div>{{reply.replyCount}} Comments</div>
+      </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            <p>{{reply.createdAt}}</p>
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

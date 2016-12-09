@@ -1,0 +1,50 @@
+<!--
+  Generated template for the CreateReplyPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>createReply</ion-title>
+    <ion-buttons end>
+      <button royal (click)="createReply()">
+        Post
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+
+
+    <ion-row class="textarea">
+      <ion-item>
+        <ion-label floating>Details</ion-label>
+        <ion-textarea type="details" rows="10" [(ngModel)]="message"></ion-textarea>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="attach">
+      <ion-col>
+        <!--<ion-item>-->
+        <!--<button primary clear small  (click)="itemTapped($event, entry)">-->
+        <button primary clear small>
+            <ion-icon name="attach"></ion-icon>
+            <div>Attachment</div>
+          </button>
+        <!--</ion-item>-->
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+      <ion-col>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

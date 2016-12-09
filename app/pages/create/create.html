@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Create
+    </ion-title>
+    <ion-buttons end>
+      <button royal  (click)="createTopic()">
+        Post
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row class="title">
+      <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input type="title" [(ngModel)]="title"></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="textarea">
+      <ion-item>
+        <ion-label floating>Details</ion-label>
+        <ion-textarea type="details" rows="10"  [(ngModel)]="message"></ion-textarea>
+      </ion-item>
+    </ion-row>
+
+    <ion-row class="attach">
+      <ion-col>
+        <!--<ion-item>-->
+          <!--<button primary clear small  (click)="itemTapped($event, entry)">-->
+          <button primary clear small>
+            <ion-icon name="attach"></ion-icon>
+            <div>Attachment</div>
+          </button>
+        <!--</ion-item>-->
+      </ion-col>
+      <ion-col>
+        <ion-item no-lines>
+          <ion-label>Threaded</ion-label>
+          <ion-checkbox dark checked="true"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

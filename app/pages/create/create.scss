@@ -1,0 +1,50 @@
+.create {
+    height: 100%;
+}
+
+.title {
+    // width: 100vw;
+    // height: 50vh;
+    flex: 1;
+}
+
+.textarea {
+    // width: 100vw;
+    // height: 50vh;
+    flex: 6;
+}
+
+// .wrap{ 
+//     position:relative;
+// }
+
+.attach {
+//   padding: $content-padding;
+//   position: relative;
+//   bottom:0;
+//   left: 0;
+//   right: 0;
+    flex:1;
+}
+
+.threaded {
+//   padding: $content-padding;
+//   position: relative;
+//   bottom:0;
+//   left: 0;
+//   right: 0;
+    flex:1;
+}
+
+// body{
+//     margin: 0;
+// }
+
+ion-grid{
+    padding:0;
+    height:100%;
+}
+
+// ion-row{
+//     flex:1;
+// }
